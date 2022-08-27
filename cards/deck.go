@@ -28,10 +28,6 @@ func newDeck() deck {
 }
 
 func deal(d deck, handSize int) (deck, deck) {
-	if len(d) < handSize {
-		fmt.Println("There're no cards left for another hand. Cards amount:", len(d))
-		os.Exit(1)
-	}
 	dealtCards := d[:1]
 	remainingCards := d[1:]
 	for i := 1; i < handSize; i++ {
