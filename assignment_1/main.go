@@ -7,7 +7,7 @@ func main() {
 	for i := 0; i <= 10; i++ {
 		ints = append(ints, i)
 	}
-	for i := range ints {
+	for _, i := range ints {
 		if i%2 == 0 {
 			fmt.Printf("%d is even\n", i)
 		} else {
