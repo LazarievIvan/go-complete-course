@@ -5,3 +5,4 @@ use ./assignment_1
 use ./http
 use ./assignment_2
 use ./assignment_3
+use ./go_routines
