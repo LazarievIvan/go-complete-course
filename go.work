@@ -3,3 +3,4 @@ go 1.19
 use ./cards
 use ./assignment_1
 use ./http
+use ./assignment_2
