@@ -29,10 +29,21 @@ func TestDeal(t *testing.T) {
 }
 
 // Check uniqueness of shuffled deck elements.
-// @todo implement this later
 func TestShuffle(t *testing.T) {
 	deck := newDeck()
 	deck.shuffle()
+	// Create a map to identify if a card was already present in the deck.
+	cardsMap := make(map[string]bool, len(deck))
+	// Iterating through cards of the deck.
+	for _, card := range deck {
+		// Checking if the card was detected as "present" before.
+		if _, value := cardsMap[card]; !value {
+			// Marking a card as "present"
+			cardsMap[card] = true
+		} else {
+			t.Errorf("Cards are not unique after shuffle!")
+		}
+	}
 }
 
 func TestSaveToFileAndTakeDeckFromFile(t *testing.T) {
@@ -46,4 +57,5 @@ func TestSaveToFileAndTakeDeckFromFile(t *testing.T) {
 	if !reflect.DeepEqual(deck, deckFromFile) {
 		t.Errorf("Deck from file is not equal to the initial deck")
 	}
+	os.Remove(".testdeck")
 }
